@@ -1,4 +1,4 @@
-﻿definitions = "definition.csv"
+definitions = "definition.csv"
 provinces = "provinces.png"
 positions = "positions.txt"
 rivers = "rivers.png"
@@ -32,7 +32,11 @@ impassable_terrain = LIST { 1723 }
 # 00_default.txt
 impassable_terrain = LIST { 1167 1198 }
 # 00_new_world_region.txt
-# new_world_region provinces are now passable (terrain assigned in setup)
+# First-pass New World inland lakes; selected from unowned, roadless interior provinces.
+lakes = LIST { 471 581 1103 1204 2453 2835 4851 5408 }
+# First-pass New World gameplay impassables; unowned, roadless highland provinces under mountain masks.
+impassable_terrain = LIST { 1161 2189 2352 2393 2506 2601 2606 2777 3182 3275 3369 }
+# Remaining new_world_region provinces are passable (terrain assigned in setup).
 # 00_wastelands_of_omniluxia.txt
 impassable_terrain = LIST { 257 348 598 897 1043 1067 1099 1283 1476 1627 1668 1692 1717 1842 2034 2346 2390 2772 2776 2861 3000 3036 3074 3277 3281 3577 3641 3663 3768 3968 3984 4968 5116 5153 5418 5563 5610 5674 5709 5710 5711 5712 5713 5714 5715 5716 5717 5718 5719 5720 5721 5722 5723 5724 5725 5726 5727 5728 5729 5730 5731 5732 5733 5734 5735 5736 5737 5738 5739 5740 5741 5742 5743 5744 5745 5746 5747 5748 5749 5750 5751 5752 5753 5754 5755 5756 5757 5758 5759 5760 5761 5762 5763 5764 5765 5766 5767 5768 5769 5770 5771 5772 5773 5774 5775 5776 5777 5778 5779 5780 5781 5782 5783 5784 5785 5786 5787 5788 5789 5790 5791 5792 5793 5794 5795 5796 5797 5798 5799 5800 5801 5802 5803 5804 5805 }
 # Lakes

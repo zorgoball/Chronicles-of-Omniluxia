@@ -1,19 +1,19 @@
 ﻿benefits_from_unique_city_buildings = {
 	trigger_if = {
 		limit = {
-			rank_by_num_territories >= great_power
+			rank >= great_power
 		}
 		num_of_cities >= 5
 	}
 	trigger_else_if = {
 		limit = {
-			rank_by_num_territories >= major_power
+			rank >= major_power
 		}
 		num_of_cities >= 3
 	}
 	trigger_else_if = {
 		limit = {
-			rank_by_num_territories >= regional_power
+			rank >= regional_power
 		}
 		num_of_cities >= 2
 	}
@@ -117,12 +117,12 @@ governorship_levies_are_raised = {
 
 is_large_country_or_will_become_it = {
 	OR = {
-		rank_by_num_territories >= major_power
+		rank >= major_power
 		AND = {
 			is_antagonist = yes
 			is_subject = no
 			OR = {
-				rank_by_num_territories >= regional_power
+				rank >= regional_power
 				AND = {
 					exists = c:ROM
 					this = c:ROM
@@ -134,7 +134,7 @@ is_large_country_or_will_become_it = {
 
 is_small_country_and_might_stay_it = {
 	is_large_country_or_will_become_it = no
-	rank_by_num_territories <= local_power
+	rank <= local_power
 }
 
 should_not_waste_innovations = {

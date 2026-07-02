@@ -174,16 +174,180 @@ eptelon_shout_region = {
         eptelon_shout_area_10
     }
 }
-new_world_region = {
+new_world_north_area_1_reg1 = {
     areas = {
-        new_world_north_area_1
-        new_world_north_area_2
-        new_world_north_area_3
-        new_world_north_area_4
-        new_world_north_area_5
-        new_world_shouth_area_1
-        new_world_shouth_area_2
-        new_world_shouth_area_3
+        new_world_north_area_1_sub1
+        new_world_north_area_1_sub2
+        new_world_north_area_1_sub4
+        new_world_north_area_1_sub6
+        new_world_north_area_1_sub8
+    }
+}
+new_world_north_area_1_reg2 = {
+    areas = {
+        new_world_north_area_1_sub3
+        new_world_north_area_1_sub5
+        new_world_north_area_1_sub7
+        new_world_north_area_1_sub9
+    }
+}
+new_world_north_area_2_reg1 = {
+    areas = {
+        new_world_north_area_2_sub1
+        new_world_north_area_2_sub2
+        new_world_north_area_2_sub3
+        new_world_north_area_2_sub4
+    }
+}
+new_world_north_area_3_reg1 = {
+    areas = {
+        new_world_north_area_3_sub1
+        new_world_north_area_3_sub2
+        new_world_north_area_3_sub3
+        new_world_north_area_3_sub5
+    }
+}
+new_world_north_area_3_reg2 = {
+    areas = {
+        new_world_north_area_3_sub11
+        new_world_north_area_3_sub12
+        new_world_north_area_3_sub13
+        new_world_north_area_3_sub14
+    }
+}
+new_world_north_area_3_reg3 = {
+    areas = {
+        new_world_north_area_3_sub10
+        new_world_north_area_3_sub4
+        new_world_north_area_3_sub8
+        new_world_north_area_3_sub9
+    }
+}
+new_world_north_area_4_reg1 = {
+    areas = {
+        new_world_north_area_4_sub1
+        new_world_north_area_4_sub12
+        new_world_north_area_4_sub13
+        new_world_north_area_4_sub14
+        new_world_north_area_4_sub3
+        new_world_north_area_4_sub4
+        new_world_north_area_4_sub7
+        new_world_north_area_4_sub8
+        new_world_north_area_4_sub9
+    }
+}
+new_world_north_area_4_reg2 = {
+    areas = {
+        new_world_north_area_4_sub10
+        new_world_north_area_4_sub11
+    }
+}
+new_world_north_area_4_reg4 = {
+    areas = {
+        new_world_north_area_4_sub2
+        new_world_north_area_4_sub5
+        new_world_north_area_4_sub6
+    }
+}
+new_world_north_area_5_reg1 = {
+    areas = {
+        new_world_north_area_5_sub1
+        new_world_north_area_5_sub2
+        new_world_north_area_5_sub3
+        new_world_north_area_5_sub4
+        new_world_north_area_5_sub5
+        new_world_north_area_5_sub8
+        new_world_north_area_5_sub9
+    }
+}
+new_world_north_area_5_reg2 = {
+    areas = {
+        new_world_north_area_5_sub10
+        new_world_north_area_5_sub6
+        new_world_north_area_5_sub7
+    }
+}
+new_world_shouth_area_1_reg1 = {
+    areas = {
+        new_world_shouth_area_1_sub1
+        new_world_shouth_area_1_sub2
+        new_world_shouth_area_1_sub3
+        new_world_shouth_area_1_sub5
+    }
+}
+new_world_shouth_area_1_reg2 = {
+    areas = {
+        new_world_shouth_area_1_sub12
+        new_world_shouth_area_1_sub13
+        new_world_shouth_area_1_sub15
+    }
+}
+new_world_shouth_area_1_reg3 = {
+    areas = {
+        new_world_shouth_area_1_sub10
+        new_world_shouth_area_1_sub14
+        new_world_shouth_area_1_sub4
+        new_world_shouth_area_1_sub6
+        new_world_shouth_area_1_sub7
+    }
+}
+new_world_shouth_area_1_reg4 = {
+    areas = {
+        new_world_shouth_area_1_sub11
+        new_world_shouth_area_1_sub8
+        new_world_shouth_area_1_sub9
+    }
+}
+new_world_shouth_area_2_reg1 = {
+    areas = {
+        new_world_shouth_area_2_sub1
+        new_world_shouth_area_2_sub3
+        new_world_shouth_area_2_sub5
+        new_world_shouth_area_2_sub6
+        new_world_shouth_area_2_sub9
+    }
+}
+new_world_shouth_area_2_reg2 = {
+    areas = {
+        new_world_shouth_area_2_sub10
+        new_world_shouth_area_2_sub2
+        new_world_shouth_area_2_sub4
+        new_world_shouth_area_2_sub7
+        new_world_shouth_area_2_sub8
+    }
+}
+new_world_shouth_area_3_reg1 = {
+    areas = {
+        new_world_shouth_area_3_sub1
+        new_world_shouth_area_3_sub2
+        new_world_shouth_area_3_sub4
+        new_world_shouth_area_3_sub5
+        new_world_shouth_area_3_sub6
+        new_world_shouth_area_3_sub9
+    }
+}
+new_world_shouth_area_3_reg2 = {
+    areas = {
+        new_world_shouth_area_3_sub10
+        new_world_shouth_area_3_sub11
+    }
+}
+new_world_shouth_area_3_reg3 = {
+    areas = {
+        new_world_shouth_area_3_sub12
+        new_world_shouth_area_3_sub13
+        new_world_shouth_area_3_sub14
+        new_world_shouth_area_3_sub18
+        new_world_shouth_area_3_sub19
+        new_world_shouth_area_3_sub7
+    }
+}
+new_world_shouth_area_3_reg4 = {
+    areas = {
+        new_world_shouth_area_3_sub15
+        new_world_shouth_area_3_sub16
+        new_world_shouth_area_3_sub17
+        new_world_shouth_area_3_sub8
     }
 }
 bloody_islands_remun_region = {

@@ -1,4 +1,4 @@
-﻿ai_recruit_mercenaries = {
+ai_recruit_mercenaries = {
     if = {
         limit = {
             NOT = {
@@ -104,9 +104,7 @@
                     
                     if = {
                         limit = {
-                            has_non_empty_local_variable_list = {
-                                name = mercenaries_that_ai_can_recruit
-                            }
+                            has_local_variable_list = mercenaries_that_ai_can_recruit
                         }
                         ordered_in_local_list = {
                             variable = mercenaries_that_ai_can_recruit
@@ -420,9 +418,7 @@ ai_destroy_leftover_navies = {
 process_states_that_just_revolted = {
     if = {
         limit = {
-            has_non_empty_global_variable_list = {
-                name = territories_that_just_revolted
-            }
+            has_global_variable_list = territories_that_just_revolted
         }
         every_in_global_list = {
             variable = territories_that_just_revolted
@@ -456,13 +452,4 @@ process_states_that_just_revolted = {
 ai_avoid_to_invoke_devotio = {
     if = {
         limit = {
-            is_ai = yes
-            has_war_exhaustion >= ai_dangerous_war_exhaustion
-            tyranny >= ai_max_tyranny_allowed
-        }
-        add_country_modifier = {
-            name = ai_avoiding_to_invoke_devotio
-            duration = 31
-        }
-    }
-}
+  

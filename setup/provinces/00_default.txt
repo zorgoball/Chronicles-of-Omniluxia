@@ -518,6 +518,196 @@
 	province_rank=""
 }
 
+471={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+581={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+1103={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+1204={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2453={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2835={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+4851={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+5408={ #New World lake
+	terrain="ocean"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+1161={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2189={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2352={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2393={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2506={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2601={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2606={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+2777={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+3182={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+3275={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
+3369={ #New World impassable
+	terrain="impassable_terrain"
+	culture=""
+	religion=""
+	trade_goods=""
+	civilization_value=0
+	barbarian_power=0
+	province_rank=""
+}
+
 5610={ #Agreer
 	terrain="impassable_terrain"
 	culture="uriyalok"

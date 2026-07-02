@@ -28,18 +28,20 @@
 				}
 				capital_scope.state = {
 					state_has_permanent_trade_routes = yes
-				}
-				# Conditions for 2 trade routes to bring more income that either of other settings
-				trigger_if = {
-					limit = {
-						has_low_economic_policy = income_commerce
+					# Conditions for 2 trade routes to bring more income that either of other settings
+					trigger_if = {
+						limit = {
+							root = {
+								has_low_economic_policy = income_commerce
+							}
+						}
+						outgoing_trade_routes < 4
+						incoming_trade_routes < 12
 					}
-					country_outgoing_trade_routes < 4
-					country_incoming_trade_routes < 12
-				}
-				trigger_else = {
-					country_outgoing_trade_routes < 5
-					country_incoming_trade_routes < 15
+					trigger_else = {
+						outgoing_trade_routes < 5
+						incoming_trade_routes < 15
+					}
 				}
 			}
 			set_variable = {
@@ -50,7 +52,9 @@
 		else_if = {
 			limit = {
 				# Export is 100% income, import is 35% - needs 3x more imports for them to bring more money
-				country_incoming_trade_routes > country_outgoing_trade_routes_mult_3
+				capital_scope.state = {
+					incoming_trade_routes > outgoing_trade_routes_mult_3
+				}
 			}
 			set_variable = {
 				name = ai_economic_policy_income_commerce_high
@@ -85,7 +89,7 @@
 				OR = {
 					# Only 1 fort level and it's in the capital, so the country has no fort maintenance
 					AND = {
-						rank_by_num_territories <= local_power
+						rank <= local_power
 						capital_scope = {
 							fort_level = 1
 						}
@@ -109,22 +113,18 @@
 								is_ai = no
 							}
 							OR = {
-								rank_by_num_territories >= scope:country_considering_fort_policy.rank_by_num_territories
-								rank_by_num_territories >= major_power
-								scope:country_considering_fort_policy.rank_by_num_territories <= regional_power
+								rank >= scope:country_considering_fort_policy.rank
+								rank >= major_power
+								scope:country_considering_fort_policy.rank <= regional_power
 							}
 						}
 						trigger_else = {
 							is_antagonist = yes
-							rank_by_num_territories >= scope:country_considering_fort_policy.rank_by_num_territories
+							rank >= scope:country_considering_fort_policy.rank
 						}
 					}
 				}
 			}
 			set_variable = {
 				name = ai_economic_policy_expense_fort_default
-				days = 366
-			}
-		}
-    }
-}
+				da

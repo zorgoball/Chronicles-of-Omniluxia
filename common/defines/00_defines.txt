@@ -15,6 +15,7 @@
 	COMBAT_TICK_LIMIT = 1
 	HOTJOIN_TICK_LIMIT = 3
 	IMPERIAL_GLORY_RANK = 10
+	TAG_LIMIT = 16384 # Raised from the vanilla default of 4096 - Omniluxia's scope (large custom tag count plus long-running dynamic tag creation from tribes/mercenaries/releases) was exceeding the default and tripping the "TagID < NDefines::NGame::TAG_LIMIT" assertion
 	SCORE_START_MAX = 500
 	SCORE_START_BASE = 50
 	SCORE_START_POP_WEIGHT = 0.25
