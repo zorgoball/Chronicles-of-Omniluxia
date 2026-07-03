@@ -1,4 +1,4 @@
-﻿namespace = me_zorgo_magic_focus
+namespace = me_zorgo_magic_focus
 
 # CAST MAGIC -------------------------------------
 me_zorgo_magic_focus.1 = { # Main Menu
@@ -617,27 +617,10 @@ me_zorgo_magic_focus.5 = { # Amten School
         trigger = {
             scope:target = {
                 has_variable = druid_t2_unlocked_var
-                is_general = yes
-                any_character_unit = {
-                    is_army = yes
-                }
             }
         }
         scope:target = {
-            change_variable = {
-                name = magic
-                subtract = omni_plant_growth_spell_cost
-            }
-            clamp_character_magic_to_max = yes
-            random_character_unit = {
-                limit = { is_army = yes }
-                unit_location = {
-                    add_province_modifier = {
-                        name = amten_druid_spell_t1_mod
-                        duration = 180
-                    }
-                }
-            }
+            set_variable = omni_pending_plant_growth_spell
         }
         custom_tooltip = tier_one_spell_tt
         custom_tooltip = plant_growth_unit_location_tt
@@ -648,57 +631,10 @@ me_zorgo_magic_focus.5 = { # Amten School
         trigger = {
             scope:target = {
                 has_variable = druid_t2_unlocked_var
-                is_general = yes
-                any_character_unit = {
-                    is_army = yes
-                    unit_location = {
-                        OR = {
-                            terrain = forest
-                            terrain = eldritch_forest
-                            terrain = jungle
-                        }
-                    }
-                }
             }
         }
         scope:target = {
-            change_variable = {
-                name = magic
-                subtract = omni_summon_dryads_spell_cost
-            }
-            clamp_character_magic_to_max = yes
-            random_character_unit = {
-                limit = {
-                    is_army = yes
-                    unit_location = {
-                        OR = {
-                            terrain = forest
-                            terrain = eldritch_forest
-                            terrain = jungle
-                        }
-                    }
-                }
-                unit_location = {
-                    save_scope_as = dryad_forest_province
-                    add_province_modifier = {
-                        name = summon_dryads_mod
-                        duration = 180
-                    }
-                }
-            }
-        }
-        create_unit = {
-            navy = no
-            name = "Summoned Dryads"
-            location = scope:dryad_forest_province
-            hidden_effect = {
-                while = {
-                    count = omni_dryad_cohort_count
-                    add_subunit = archers
-                }
-                add_food = 300
-                add_morale = 4
-            }
+            set_variable = omni_pending_summon_dryads_spell
         }
         custom_tooltip = tier_one_spell_tt
         custom_tooltip = summon_dryads_unit_location_tt
@@ -2378,49 +2314,145 @@ me_zorgo_magic_focus.15 = { # Who is Casting?
 
     option = {
         name = me_zorgo_magic_focus.15.cast1
-        trigger = { exists = scope:caster_1 }
+        trigger = {
+            exists = scope:caster_1
+            scope:caster_1 = { this = scope:target }
+        }
+        scope:caster_1 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast1
+        trigger = {
+            exists = scope:caster_1
+            NOT = { scope:caster_1 = { this = scope:target } }
+        }
         scope:caster_1 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast2
-        trigger = { exists = scope:caster_2 }
+        trigger = {
+            exists = scope:caster_2
+            scope:caster_2 = { this = scope:target }
+        }
+        scope:caster_2 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast2
+        trigger = {
+            exists = scope:caster_2
+            NOT = { scope:caster_2 = { this = scope:target } }
+        }
         scope:caster_2 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast3
-        trigger = { exists = scope:caster_3 }
+        trigger = {
+            exists = scope:caster_3
+            scope:caster_3 = { this = scope:target }
+        }
+        scope:caster_3 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast3
+        trigger = {
+            exists = scope:caster_3
+            NOT = { scope:caster_3 = { this = scope:target } }
+        }
         scope:caster_3 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast4
-        trigger = { exists = scope:caster_4 }
+        trigger = {
+            exists = scope:caster_4
+            scope:caster_4 = { this = scope:target }
+        }
+        scope:caster_4 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast4
+        trigger = {
+            exists = scope:caster_4
+            NOT = { scope:caster_4 = { this = scope:target } }
+        }
         scope:caster_4 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast5
-        trigger = { exists = scope:caster_5 }
+        trigger = {
+            exists = scope:caster_5
+            scope:caster_5 = { this = scope:target }
+        }
+        scope:caster_5 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast5
+        trigger = {
+            exists = scope:caster_5
+            NOT = { scope:caster_5 = { this = scope:target } }
+        }
         scope:caster_5 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast6
-        trigger = { exists = scope:caster_6 }
+        trigger = {
+            exists = scope:caster_6
+            scope:caster_6 = { this = scope:target }
+        }
+        scope:caster_6 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast6
+        trigger = {
+            exists = scope:caster_6
+            NOT = { scope:caster_6 = { this = scope:target } }
+        }
         scope:caster_6 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast7
-        trigger = { exists = scope:caster_7 }
+        trigger = {
+            exists = scope:caster_7
+            scope:caster_7 = { this = scope:target }
+        }
+        scope:caster_7 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast7
+        trigger = {
+            exists = scope:caster_7
+            NOT = { scope:caster_7 = { this = scope:target } }
+        }
         scope:caster_7 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
     option = {
         name = me_zorgo_magic_focus.15.cast8
-        trigger = { exists = scope:caster_8 }
+        trigger = {
+            exists = scope:caster_8
+            scope:caster_8 = { this = scope:target }
+        }
+        scope:caster_8 = { save_scope_as = selected_mage }
+        trigger_event = { id = me_zorgo_magic_focus.2 }
+    }
+    option = {
+        name = me_zorgo_magic_focus.15.cast8
+        trigger = {
+            exists = scope:caster_8
+            NOT = { scope:caster_8 = { this = scope:target } }
+        }
         scope:caster_8 = { save_scope_as = selected_mage }
         trigger_event = { id = me_zorgo_magic_focus.16 }
     }
@@ -3316,7 +3348,7 @@ me_zorgo_magic_focus.28 = { # Mana Overuse Death -50
 }
 
 
-me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own army unit
+me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own army or navy unit
     type = country_event
 
     title = me_zorgo_magic_focus.29_title
@@ -3325,7 +3357,7 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
     left_portrait = scope:selected_mage
     right_portrait = scope:target
 
-    # scope:target = the commander of the player's selected army unit (passed by
+    # scope:target = the commander of the player's selected army/navy unit (passed by
     # the omni_friendly_magic_unit_button scripted gui). Auto-select the best
     # available caster, matching the offensive/domestic menus.
     immediate = {
@@ -3334,6 +3366,7 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
                 OR = {
                     is_ruler = yes
                     is_general = yes
+                    is_admiral = yes
                     has_office = office_physician
                     has_office = office_republic_physician
                     has_office = office_apothecary
@@ -3374,7 +3407,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_haste_spell_mod }
                     remove_unit_modifier = omni_battle_haste_spell_mod
@@ -3399,7 +3437,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_haste_2_spell_mod }
                     remove_unit_modifier = omni_battle_haste_2_spell_mod
@@ -3424,7 +3467,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_haste_3_spell_mod }
                     remove_unit_modifier = omni_battle_haste_3_spell_mod
@@ -3452,7 +3500,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_haste_4_spell_mod }
                     remove_unit_modifier = omni_battle_haste_4_spell_mod
@@ -3477,7 +3530,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_rally_spell_mod }
                     remove_unit_modifier = omni_battle_rally_spell_mod
@@ -3502,7 +3560,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_discipline_spell_mod }
                     remove_unit_modifier = omni_battle_discipline_spell_mod
@@ -3530,7 +3593,12 @@ me_zorgo_magic_focus.29 = { # Friendly Buff Menu - Cast a good spell on your own
         }
         scope:target = {
             every_character_unit = {
-                limit = { is_army = yes }
+                limit = {
+                    OR = {
+                        is_army = yes
+                        is_navy = yes
+                    }
+                }
                 if = {
                     limit = { has_unit_modifier = omni_battle_blessing_spell_mod }
                     remove_unit_modifier = omni_battle_blessing_spell_mod
@@ -3898,5 +3966,103 @@ me_zorgo_magic_focus.35 = { # AI: mage-generals auto-cast friendly battle buffs 
             }
             omni_ai_battlecast_effect = yes
         }
+    }
+}
+
+me_zorgo_magic_focus.36 = { # Teleport Army (unit button)
+    type = country_event
+
+    title = me_zorgo_magic_focus.36_title
+    desc = me_zorgo_magic_focus.36_desc
+    picture = ascetic
+    left_portrait = scope:target
+
+    # scope:target = the commander of the selected army (passed by
+    # omni_teleport_unit_button). The general casts the teleport themselves.
+    immediate = {
+        scope:target = {
+            random_character_unit = {
+                limit = { is_army = yes }
+                unit_location = { save_scope_as = teleport_origin }
+            }
+        }
+    }
+
+    # Teleport to Capital
+    option = {
+        trigger = {
+            scope:target = { omni_can_afford_spell = { BASE = 15 } }
+        }
+        scope:target = {
+            if = {
+                limit = { scope:target.employer.capital_scope = { is_in_area = scope:teleport_origin } }
+                omni_spell_mana_cost_effect = { BASE = 15 }
+            }
+            else_if = {
+                limit = { scope:teleport_origin = { is_on_neighboring_or_same_continent = { PROVINCE = scope:target.employer.capital_scope } } }
+                omni_spell_mana_cost_effect = { BASE = 50 }
+            }
+            else_if = {
+                limit = { scope:teleport_origin = { is_on_neighboring_continent = { PROVINCE = scope:target.employer.capital_scope } } }
+                omni_spell_mana_cost_effect = { BASE = 100 }
+            }
+            else = {
+                omni_spell_mana_cost_effect = { BASE = 200 }
+            }
+        }
+        scope:target = {
+            if = {
+                limit = { scope:target.employer.capital_scope = { is_in_area = scope:teleport_origin } }
+                every_character_unit = {
+                    limit = { is_army = yes }
+                    add_unit_modifier = {
+                        name = omni_teleport_spell_mod
+                        duration = 7
+                    }
+                    add_morale = -1
+                }
+            }
+            else_if = {
+                limit = { scope:teleport_origin = { is_on_neighboring_or_same_continent = { PROVINCE = scope:target.employer.capital_scope } } }
+                every_character_unit = {
+                    limit = { is_army = yes }
+                    add_unit_modifier = {
+                        name = omni_teleport_spell_mod
+                        duration = 7
+                    }
+                    add_morale = -4
+                }
+            }
+            else_if = {
+                limit = { scope:teleport_origin = { is_on_neighboring_continent = { PROVINCE = scope:target.employer.capital_scope } } }
+                every_character_unit = {
+                    limit = { is_army = yes }
+                    add_unit_modifier = {
+                        name = omni_teleport_spell_mod
+                        duration = 7
+                    }
+                    add_morale = -8
+                }
+            }
+            else = {
+                every_character_unit = {
+                    limit = { is_army = yes }
+                    add_unit_modifier = {
+                        name = omni_teleport_spell_mod
+                        duration = 7
+                    }
+                    add_morale = 0.5
+                }
+            }
+        }
+        custom_tooltip = me_zorgo_magic_focus.36_tooltip
+        trigger_event = { id = omniluxia_teleport.1 }
+        name = "me_zorgo_magic_focus.36.a"
+    }
+
+    # Cancel
+    option = {
+        name = "me_zorgo_magic_focus.2.z.2"
+        custom_tooltip = me_zorgo_magic_focus.2_tooltip
     }
 }

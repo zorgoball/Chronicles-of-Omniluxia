@@ -1,0 +1,109 @@
+engage_in_piracy = {
+
+	duration = 120
+	enable = yes
+	toggle = yes
+	navy_only = yes
+
+	soundeffect = "event:/SFX/UI/Unit/sfx_ui_unit_capture_port"
+
+	allow = {
+		is_navy = yes
+		unit_size >= 10
+		in_combat = no
+		is_moving = no
+		is_exiled = no
+		NOT = { has_variable = engage_in_piracy_cooldown }
+		unit_owner = { NOT = { has_law = antipiracy_edict } }
+		unit_location = {
+			custom_tooltip = {
+				text = naval_raiding_sea_province
+				OR = {
+					terrain = riverine_terrain
+					terrain = ocean
+					terrain = coastal_terrain
+				}
+			}
+		}
+		trigger_if = {
+			limit = {
+				exists = commander
+			}
+			commander = {
+				loyalty > 33
+			}
+		}
+	}
+
+	start_effect = {
+		hidden_effect = {
+			set_variable = {
+				name = engage_in_piracy_active
+				value = yes
+			}
+			if = {
+				limit = {
+					has_unit_modifier = engage_in_piracy_unit_modifier
+				}
+				remove_unit_modifier = engage_in_piracy_unit_modifier
+			}
+			add_unit_modifier = {
+				name = engage_in_piracy_unit_modifier
+				duration = 120
+			}
+		}
+	}
+
+	finish_effect = {
+		hidden_effect = {
+			remove_variable = engage_in_piracy_active
+			if = {
+				limit = {
+					has_unit_modifier = engage_in_piracy_unit_modifier
+				}
+				remove_unit_modifier = engage_in_piracy_unit_modifier
+			}
+			set_variable = {
+				name = engage_in_piracy_cooldown
+				value = 1
+				days = 180
+			}
+		}
+	}
+
+	ai_will_do = {
+		modifier = {
+			trigger = {
+				unit_location = {
+					any_neighbor_province = {
+						engage_in_piracy_target_province_trigger = yes
+						NOT = { owner = root.unit_owner }
+						owner = {
+							NOT = { alliance_with = root.unit_owner }
+							NOT = { is_subject_of = root.unit_owner }
+						}
+					}
+				}
+			}
+			add = {
+				value = 100
+				divide = unit_size_rank
+			}
+		}
+	}
+
+	ai_will_revoke = {
+		unit_location = {
+			NOT = {
+				any_neighbor_province = {
+					engage_in_piracy_target_province_trigger = yes
+					NOT = { owner = root.unit_owner }
+					owner = {
+						NOT = { alliance_with = root.unit_owner }
+						NOT = { is_subject_of = root.unit_owner }
+					}
+				}
+			}
+		}
+	}
+}
