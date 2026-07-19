@@ -1033,7 +1033,6 @@ class Site:
     {self.RULE}
     <header class="sec-head">
       <h2>Start Here</h2>
-      <p>The pages most people open first.</p>
     </header>
     <div class="feats">{"".join(feats)}
     </div>
