@@ -145,7 +145,7 @@ def main():
 
     if not os.path.isdir(os.path.join(MOD_ROOT, "gfx", "loadingscreens")):
         sys.exit(f"No gfx/loadingscreens/ under: {MOD_ROOT}\n"
-                 f"This script needs the mod repo for its source art. Pass "
+                 f"This script needs the mod repo for its source art. "
                  f"Pass --mod PATH or set OMNI_MOD.")
 
     os.makedirs(OUT, exist_ok=True)
