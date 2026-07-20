@@ -133,6 +133,7 @@ CATEGORY_OVERRIDES = {
     "Dwarven-Grandlands": "countries",
     "Eagelian-Kingdom": "countries",
     "Jarenam-Empire": "countries",
+    "Kingdom-of-Edis": "countries",
     "Northern-Empire": "countries",
     "Gevanni": "countries",
 
