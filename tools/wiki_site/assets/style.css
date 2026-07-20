@@ -829,6 +829,16 @@ a.eyebrow:hover { background: rgba(232,185,106,.16); border-color: var(--gold); 
 .breadcrumbs a { color: var(--gold-deep); border: 0; }
 .breadcrumbs a:hover { color: var(--gold-hi); }
 .prose a.autolink { text-decoration-style: dotted; text-underline-offset: .2em; }
+.nation-panel dt {
+  color: var(--gold);
+  font-family: var(--f-display);
+  font-size: .72rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.nation-panel dd {
+  color: var(--text-soft);
+}
 .article-facts {
   float: right; width: min(18rem, 45%); margin: 0 0 1.5rem 2rem; padding: 1.1rem 1.2rem;
   border: 1px solid var(--line); border-top: 2px solid var(--gold-deep);
