@@ -26,7 +26,6 @@ SECTION_IDEAS = {
     "cultures": ["Language and naming", "Social customs", "Political traditions", "Neighbors and diaspora"],
     "history": ["Causes", "Principal actors", "Course of events", "Consequences and memory"],
     "magic": ["Principles", "Practitioners and training", "Uses and limitations", "Historical examples"],
-    "newworld": ["Homeland and environment", "Society", "History", "Old World contact"],
     "lore": ["Origins", "Organization or nature", "Historical role", "Connections to the wider setting"],
 }
 

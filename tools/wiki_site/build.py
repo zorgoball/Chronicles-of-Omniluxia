@@ -74,14 +74,11 @@ CATEGORIES = [
     ("countries",   "Countries",            "Countries",
      "The realms of the world, standing and fallen alike — from the Zani "
      "successor states to the ancient dwarven kingdoms."),
-    ("newworld",    "New-World",            "The New World",
-     "The Jade Island, the Mushroom Isles, and the ten ancient races beyond the horizon."),
     ("characters",  "Important-Characters", "Characters",
      "Gods, demi-gods, emperors, generals, prophets, and rebels who shaped the age."),
 ]
 
 CLASSIFY_PRIORITY = [
-    "newworld",    # claims its ten races before the general Races hub can
     "races",
     "religions",
     "cultures",
@@ -133,6 +130,7 @@ CATEGORY_OVERRIDES = {
     "Dwarven-Grandlands": "countries",
     "Eagelian-Kingdom": "countries",
     "Jarenam-Empire": "countries",
+    "Kingdom-of-Edis": "countries",
     "Northern-Empire": "countries",
     "Gevanni": "countries",
 
@@ -159,6 +157,7 @@ CATEGORY_OVERRIDES = {
     "Morrigon": "regions",
     "Silver-Caves": "regions",
     "Eldritch-Forest": "regions",
+    "New-World": "regions",
 
     # Likewise the Zani Empire is referenced everywhere but belongs to no hub
     "Zani-Empire": "countries",
@@ -187,12 +186,11 @@ CATEGORY_PLATES = {
     "cultures":   [6, 10, 5, 2],
     "regions":    [0, 4, 12, 2, 11],
     "countries":  [10, 13, 3, 1, 14],
-    "newworld":   [6, 0, 7, 4],
     "characters": [13, 2, 10, 9],
     "lore":       [5, 11, 1, 12, 0],
 }
 
-FEATURED = ["Timeline", "Magic", "Zani-Empire", "Races", "Religions", "New-World"]
+FEATURED = ["Timeline", "Magic", "Zani-Empire", "Races", "Religions", "Regions"]
 
 
 # ---------------------------------------------------------------------------
