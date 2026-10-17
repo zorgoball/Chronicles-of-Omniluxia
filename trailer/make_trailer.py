@@ -289,14 +289,14 @@ def s_open(t, d):
 def s_newworld(t, d):
     f = world_view(t / d, 1.9, 3.0, (0.66, 0.5), NWC, glow=0.25 + 0.75 * ease(t / 0.9) * (0.85 + 0.15 * math.sin(t * 6)))
     f = vignette(f, 0.5)
-    caption_block(f, t, "THE NEW WORLD", "A New World to Conquer", "13 new regions  ·  45 new formable nations  ·  new holy sites")
+    caption_block(f, t, "THE NEW WORLD", "A New World to Conquer", "13 New Regions  ·  45 New Formable Nations  ·  New Holy Sites")
     return f
 
 
 def s_peoples(t, d):
     f = grade(ken_burns(LOADS[7], t / d, 1.05, 1.22, (0.5, 0.45), (0.46, 0.5)))
     f = vignette(f)
-    caption_block(f, t, "A FULL RACIAL SYSTEM", "New Peoples Rise", "Orcish faiths & governments  ·  Snakefolk  ·  Ishtari  ·  new cultures")
+    caption_block(f, t, "A FULL RACIAL SYSTEM", "New Peoples Rise", "Orcish Faiths & Governments  ·  Snakefolk  ·  Ishtari  ·  New Cultures")
     return f
 
 
@@ -312,14 +312,14 @@ def s_magic(t, d):
         cx = W / 2 + math.cos(ang) * 620 + 0
         cy = 760 + math.sin(ang) * 520
         paste_icon(f, ic, cx, cy, 150, (t - i * BEAT / 2) / 0.25)
-    caption_block(f, t, "A FULL MAGIC SYSTEM", "Study. Learn. Cast.", "Battle, siege & civic spells  ·  magic academies  ·  battle-magic AI", y=830)
+    caption_block(f, t, "A FULL MAGIC SYSTEM", "Study. Learn. Cast.", "Battle, Siege & Civic Spells  ·  Magic Academies  ·  Battle-Magic AI", y=830)
     return f
 
 
 def s_raid(t, d):
     f = grade(ken_burns(LOADS[2], t / d, 1.1, 1.3, (0.5, 0.5), (0.56, 0.44)), warm=0.1)
     f = vignette(f)
-    caption_block(f, t, "RAIDING & PIRACY", "Raid. Pillage. Plunder.", "Raze & pillage provinces  ·  engage in piracy  ·  build pirate havens")
+    caption_block(f, t, "RAIDING & PIRACY", "Raid. Pillage. Plunder.", "Raze & Pillage Provinces  ·  Engage in Piracy  ·  Build Pirate Havens")
     return f
 
 
@@ -332,18 +332,33 @@ def s_wonders(t, d):
         a = (t - i * BEAT / 1.5) / 0.3
         paste_icon(f, ic, cx, cy, 230, a, glow=False)
         text(f, name, 26, (cx, cy + 132), t, color=CREAM, delay=i * BEAT / 1.5 + 0.1)
-    caption_block(f, t, "GREAT WORKS", "Raise New Wonders", "Omniluxian trade goods now build great wonders", y=900)
+    caption_block(f, t, "GREAT WORKS", "Raise New Wonders", "Omniluxian Trade Goods Now Build Great Wonders", y=900)
     return f
 
 
-def s_story(t, d):
-    f = grade(ken_burns(LOADS[13], t / d, 1.05, 1.25, (0.45, 0.5), (0.5, 0.42)))
-    f = vignette(f)
-    caption_block(f, t, "NEW STORIES", "The Razani Civil War", "Duny migrations  ·  the Great Earthquake of Racgerrac  ·  new mission trees")
+MARKET = git_img("gfx/interface/event_window/event_generic_marketplace.dds").convert("RGB")
+SLOTS = ["Weapon", "Ranged", "Armor", "Shield", "Emblem", "Trinket"]
+
+
+def s_items(t, d):
+    f = grade(ken_burns(MARKET, t / d, 1.0, 1.1, (0.5, 0.55), (0.5, 0.5)), warm=0.08)
+    f = vignette(f, 0.6)
+    d2 = ImageDraw.Draw(f, "RGBA")
+    bw, bh, gap = 230, 84, 24
+    x0 = W / 2 - (len(SLOTS) * bw + (len(SLOTS) - 1) * gap) / 2
+    for i, name in enumerate(SLOTS):
+        a = ease((t - 0.15 - i * BEAT / 2) / 0.2)
+        if a <= 0:
+            continue
+        x, y = x0 + i * (bw + gap), 250 + (1 - a) * 24
+        d2.rectangle([x, y, x + bw, y + bh], fill=(14, 12, 10, int(200 * a)), outline=GOLD + (int(255 * a),), width=2)
+        text(f, name, 34, (x + bw / 2, 250 + bh / 2), t, color=CREAM, delay=0.15 + i * BEAT / 2, dur=0.2)
+    caption_block(f, t, "ITEMS & CITY VISITS", "Equip Your Rulers",
+                  "Visit Cities  ·  Shop the Markets & Black Markets  ·  1,040 Items to Collect")
     return f
 
 
-RAPID = [(12, "Vampire Dominions"), (8, "Adventures"), (6, "Trade Expeditions"), (10, "Gamble at the Circus")]
+RAPID = [(13, "The Razani Civil War"), (12, "Vampire Dominions"), (8, "Adventures"), (6, "Trade Expeditions")]
 
 
 def s_rapid(t, d):
@@ -364,11 +379,11 @@ def s_title(t, d):
     text(f, "CHRONICLES OF", 54, (W / 2, H / 2 - 110), t, color=GOLD, spacing=1, delay=0.05, dur=0.5)
     text(f, "OMNILUXIA", 168, (W / 2, H / 2 + 10), t, color=CREAM, delay=0.15, dur=0.6)
     rule(f, H / 2 + 110, t, width=760, delay=0.4)
-    text(f, "A total conversion for Imperator: Rome", 40, (W / 2, H / 2 + 165), t, color=GOLD, delay=0.7, dur=0.5)
+    text(f, "A Total Conversion for Imperator: Rome", 40, (W / 2, H / 2 + 165), t, color=GOLD, delay=0.7, dur=0.5)
     return f
 
 
-SCENES = [s_open, s_newworld, s_peoples, s_magic, s_raid, s_wonders, s_story, s_rapid, s_title]
+SCENES = [s_open, s_newworld, s_peoples, s_magic, s_raid, s_items, s_wonders, s_rapid, s_title]
 
 
 def frame_at(time):
